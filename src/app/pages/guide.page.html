@@ -1,0 +1,17 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Guia</p>
+    <h1>Como ler uma manobra</h1>
+  </div>
+</section>
+
+<section class="guide-list">
+  @for (entry of store.guide; track entry.title) {
+    <article>
+      <span>{{ entry.kind }}</span>
+      <h2>{{ entry.title }}</h2>
+      <p>{{ entry.description }}</p>
+      <strong>{{ entry.tip }}</strong>
+    </article>
+  }
+</section>

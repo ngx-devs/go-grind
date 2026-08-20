@@ -1,0 +1,20 @@
+<header class="app-header">
+  <a class="brand" routerLink="/" aria-label="Go Grind inicio">
+    <span class="brand-mark">GG</span>
+    <span>
+      <strong>Go Grind</strong>
+      <small>grind smarter</small>
+    </span>
+  </a>
+
+  <nav aria-label="Principal">
+    <a routerLink="/catalogo" routerLinkActive="active">Catalogo</a>
+    <a routerLink="/guia" routerLinkActive="active">Guia</a>
+    <a routerLink="/blade/setup" routerLinkActive="active">B.L.A.D.E.</a>
+    <a routerLink="/historico" routerLinkActive="active">Historico</a>
+  </nav>
+</header>
+
+<main>
+  <router-outlet />
+</main>

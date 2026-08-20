@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=afuuughgjixiynkphgwm&features=docs%2Cdatabase%2Cdebugging%2Cdevelopment%2Cfunctions"
+    },
+    "gcloud": {
+      "command": "npx",
+      "args": ["-y", "@google-cloud/gcloud-mcp"],
+      "env": {
+        "CLOUDSDK_CORE_PROJECT": "go-grind",
+        "GOOGLE_CLOUD_PROJECT": "go-grind",
+        "GCLOUD_PROJECT": "go-grind"
+      }
+    }
+  }
+}

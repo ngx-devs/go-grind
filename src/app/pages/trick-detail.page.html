@@ -1,0 +1,26 @@
+@if (trick(); as trick) {
+  <section class="detail">
+    <div class="detail-media">
+      <img [src]="trick.image" [alt]="trick.name" />
+    </div>
+    <article class="detail-copy">
+      <a routerLink="/catalogo" class="back">Voltar ao catalogo</a>
+      <p class="eyebrow">{{ trick.level }} / {{ trick.category }}</p>
+      <h1>{{ trick.name }}</h1>
+      <p class="lead">{{ trick.description }}</p>
+      <dl>
+        <div><dt>Encaixe</dt><dd>{{ trick.baseLock }}</dd></div>
+        <div><dt>Familia</dt><dd>{{ trick.family }}</dd></div>
+        <div><dt>Midia</dt><dd>{{ trick.hasAsset ? trick.assetType : 'pendente' }}</dd></div>
+      </dl>
+      <div class="chips">
+        @for (badge of trick.badges; track badge) {
+          <span>{{ badge }}</span>
+        }
+      </div>
+      <p class="note">Leia primeiro o encaixe, depois some entrada, direcao, giro e estilo.</p>
+    </article>
+  </section>
+} @else {
+  <section class="page-head"><h1>Manobra nao encontrada</h1></section>
+}

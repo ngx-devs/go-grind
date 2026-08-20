@@ -1,0 +1,31 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Game setup</p>
+    <h1>Monte a batalha.</h1>
+  </div>
+</section>
+
+<section class="form-panel">
+  <label>
+    Jogador 1
+    <input [ngModel]="playerOne()" (ngModelChange)="playerOne.set($event)" />
+  </label>
+  <label>
+    Jogador 2
+    <input [ngModel]="playerTwo()" (ngModelChange)="playerTwo.set($event)" />
+  </label>
+  <label>
+    Nivel
+    <select [ngModel]="level()" (ngModelChange)="level.set($event)">
+      @for (item of store.levels(); track item) {
+        <option [value]="item">{{ item }}</option>
+      }
+    </select>
+  </label>
+  <fieldset>
+    <legend>Modo</legend>
+    <label><input type="radio" name="mode" value="draw" [ngModel]="mode()" (ngModelChange)="mode.set($event)" /> Sortear</label>
+    <label><input type="radio" name="mode" value="choose" [ngModel]="mode()" (ngModelChange)="mode.set($event)" /> Escolher</label>
+  </fieldset>
+  <button class="button primary" type="button" (click)="start()">Entrar na arena</button>
+</section>

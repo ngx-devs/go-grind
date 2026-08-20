@@ -1,0 +1,59 @@
+<section class="hero band">
+  <div class="hero-copy">
+    <p class="eyebrow">Aggressive inline training</p>
+    <h1>Domine o grind, rodada por rodada.</h1>
+    <p class="lead">Go Grind organiza manobras, nivel tecnico e partidas de B.L.A.D.E. em uma experiencia rapida para sessao de pista, treino solo e disputa entre amigos.</p>
+    <div class="actions">
+      <a class="button primary" routerLink="/blade/setup">Jogar agora</a>
+      <a class="button ghost" routerLink="/catalogo">Explorar manobras</a>
+    </div>
+  </div>
+  <div class="hero-stage" aria-label="Go Grind painel">
+    <img src="/assets/imgs/bladeSoul.png" alt="Patins aggressive inline em manobra soul" />
+    <div class="stage-panel">
+      <span>Proxima manobra</span>
+      <strong>Soul Grind</strong>
+      <small>Iniciante / soul plate</small>
+    </div>
+    <div class="stage-score">
+      <span>B</span><span>L</span><span>A</span><span>D</span><span>E</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <article>
+    <strong>{{ store.tricks().length }}</strong>
+    <span>manobras</span>
+  </article>
+  <article>
+    <strong>{{ store.readyCount() }}</strong>
+    <span>com midia</span>
+  </article>
+  <article>
+    <strong>{{ families() }}</strong>
+    <span>familias</span>
+  </article>
+  <article>
+    <strong>{{ supabase.configured ? 'on' : 'prep' }}</strong>
+    <span>Supabase</span>
+  </article>
+</section>
+
+<section class="band feature-strip">
+  <article>
+    <span>01</span>
+    <h2>Catalogo para estudar</h2>
+    <p>Filtro por nivel, familia e encaixe para achar a manobra certa sem perder tempo.</p>
+  </article>
+  <article>
+    <span>02</span>
+    <h2>Jogo pronto para pista</h2>
+    <p>Sorteio, placar B.L.A.D.E. e historico local para manter a sessao fluindo.</p>
+  </article>
+  <article>
+    <span>03</span>
+    <h2>Evolucao conectada</h2>
+    <p>Estrutura preparada para perfil, ranking e sync com Supabase.</p>
+  </article>
+</section>

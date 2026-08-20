@@ -1,0 +1,34 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Biblioteca tecnica</p>
+    <h1>Escolha o proximo lock.</h1>
+  </div>
+  <a class="button ghost" routerLink="/guia">Guia de leitura</a>
+</section>
+
+<section class="toolbar">
+  <input type="search" placeholder="Buscar por nome, familia ou encaixe" [ngModel]="query()" (ngModelChange)="query.set($event)" />
+  <select [ngModel]="level()" (ngModelChange)="level.set($event)">
+    <option>Todas</option>
+    @for (item of store.levels(); track item) {
+      <option [value]="item">{{ item }}</option>
+    }
+  </select>
+</section>
+
+<section class="trick-grid">
+  @for (trick of tricks(); track trick.id) {
+    <a class="trick-card" [routerLink]="['/manobra', trick.id]">
+      <div class="trick-thumb">
+        <img [src]="trick.image" [alt]="trick.name" loading="lazy" />
+      </div>
+      <div class="trick-body">
+        <span>{{ trick.level }}</span>
+        <h2>{{ trick.name }}</h2>
+        <p>{{ trick.baseLock }}</p>
+      </div>
+    </a>
+  } @empty {
+    <p class="empty">Nada encontrado.</p>
+  }
+</section>

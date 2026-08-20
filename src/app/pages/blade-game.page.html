@@ -1,0 +1,73 @@
+<section class="game">
+  <header class="game-head">
+    <div>
+      <p class="eyebrow">Rodada {{ round() }} / {{ level }}</p>
+      <h1>{{ winner() ? 'Fim de jogo' : activePlayer().name + ' no comando' }}</h1>
+    </div>
+    <a class="button ghost" routerLink="/blade/setup">Nova config</a>
+  </header>
+
+  <section class="scoreboard">
+    @for (player of players(); track player.name) {
+      <article [class.active]="$index === activeIndex()">
+        <strong>{{ player.name }}</strong>
+        <div class="letters">
+          @for (letter of letters; track letter) {
+            <span [class.lit]="$index < player.misses">{{ letter }}</span>
+          }
+        </div>
+      </article>
+    }
+  </section>
+
+  @if (winner(); as name) {
+    <section class="result band">
+      <h2>{{ name }} venceu</h2>
+      <button class="button primary" type="button" (click)="reset()">Jogar de novo</button>
+    </section>
+  } @else {
+    <section class="play-panel arena">
+      @if (mode === 'choose') {
+        <div class="choose-panel">
+          <div class="toolbar compact">
+            <input type="search" placeholder="Escolher manobra" [ngModel]="query()" (ngModelChange)="query.set($event)" />
+          </div>
+          <div class="choice-list">
+            @for (trick of options(); track trick.id) {
+              <button type="button" (click)="choose(trick)">{{ trick.name }}</button>
+            }
+          </div>
+        </div>
+      } @else {
+        <aside class="draw-panel">
+          <span>Sorteio rapido</span>
+          <p>Use quando ninguem quer aliviar no desafio.</p>
+          <button class="button primary" type="button" (click)="draw()">Sortear manobra</button>
+        </aside>
+      }
+
+      @if (currentTrick(); as trick) {
+        <article class="current-trick">
+          <img [src]="trick.image" [alt]="trick.name" />
+          <div>
+            <p class="eyebrow">{{ trick.level }} / {{ trick.baseLock }}</p>
+            <h2>{{ trick.name }}</h2>
+            <p>{{ trick.description }}</p>
+            <div class="actions">
+              <button class="button primary" type="button" (click)="register(true)">Acertou</button>
+              <button class="button danger" type="button" (click)="register(false)">Errou</button>
+            </div>
+          </div>
+        </article>
+      } @else {
+        <article class="current-trick empty-state">
+          <div>
+            <p class="eyebrow">Aguardando manobra</p>
+            <h2>Comece o round</h2>
+            <p>Sorteie ou escolha uma manobra para registrar a resposta do jogador ativo.</p>
+          </div>
+        </article>
+      }
+    </section>
+  }
+</section>
