@@ -81,6 +81,10 @@ Palette sampled from `public/assets/imgs/go-grind-logo.png`:
 - Electric cyan: `#00a0b0`
 - Steel gray: `#505050`
 
+## PWA assets
+
+The PWA icon, maskable icon, favicon PNGs, Apple touch icon, and iOS startup splash images are generated from `public/assets/imgs/go-grind-logo.png`.
+
 ## Running end-to-end tests
 
 For end-to-end (e2e) testing, run:

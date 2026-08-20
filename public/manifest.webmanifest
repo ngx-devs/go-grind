@@ -2,9 +2,10 @@
   "name": "Go Grind",
   "short_name": "Go Grind",
   "description": "Catalogo e jogo B.L.A.D.E. para aggressive inline.",
-  "theme_color": "#1f7a5a",
-  "background_color": "#f8f7f2",
+  "theme_color": "#030303",
+  "background_color": "#030303",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
   "icons": [
@@ -39,6 +40,12 @@
       "purpose": "maskable any"
     },
     {
+      "src": "icons/icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
@@ -55,6 +62,26 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
+    },
+    {
+      "src": "icons/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "splash/splash-828x1792.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "splash/splash-2048x2732.png",
+      "sizes": "2048x2732",
+      "type": "image/png",
+      "form_factor": "wide"
     }
   ]
 }
