@@ -51,19 +51,35 @@ The Angular app uses Supabase Auth with `signInWithOAuth({ provider: 'google' })
 In Google Cloud OAuth client:
 
 - Authorized JavaScript origin, local: `http://localhost:4200`
+- Authorized JavaScript origin, production: `https://gogrind.com.br`
+- Authorized JavaScript origin, production www: `https://www.gogrind.com.br`
 - Authorized redirect URI, hosted Supabase: `https://afuuughgjixiynkphgwm.supabase.co/auth/v1/callback`
 
 In Supabase Dashboard > Auth > URL Configuration:
 
-- Site URL, local: `http://localhost:4200`
+- Site URL, production: `https://gogrind.com.br`
 - Redirect URL, local: `http://localhost:4200/auth`
-- Redirect URL, production: `https://<production-domain>/auth`
+- Redirect URL, production: `https://gogrind.com.br/auth`
+- Redirect URL, production www: `https://www.gogrind.com.br/auth`
+- Redirect URL, Vercel alias: `https://go-grind-beta.vercel.app/auth`
 
 In Supabase Dashboard > Auth > Providers > Google:
 
 - Enable Google
 - Add Google Client ID
 - Add Google Client Secret
+
+## Brand palette
+
+Palette sampled from `public/assets/imgs/go-grind-logo.png`:
+
+- Carbon black: `#030303`
+- Boot black: `#202020`
+- Warm cream: `#ffe0c0`
+- Fire red: `#e01000`
+- Flame orange: `#ff5000`
+- Electric cyan: `#00a0b0`
+- Steel gray: `#505050`
 
 ## Running end-to-end tests
 

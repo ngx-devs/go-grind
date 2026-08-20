@@ -1,17 +1,22 @@
 :root {
-  --ink: #f5f1e8;
+  --ink: #ffe0c0;
   --ink-strong: #ffffff;
-  --muted: #a9a294;
-  --surface: #111311;
-  --panel: #191d1a;
-  --panel-2: #20261f;
-  --soft: #2c352e;
-  --line: #374036;
-  --accent: #d7ff64;
-  --accent-ink: #111311;
-  --danger: #ff604d;
-  --blue: #6aa7ff;
-  --warm: #f0a85c;
+  --muted: #c8b8a6;
+  --surface: #030303;
+  --panel: #111111;
+  --panel-2: #202020;
+  --soft: #33201a;
+  --line: #50332a;
+  --accent: #ff5000;
+  --accent-ink: #130300;
+  --ember: #e01000;
+  --flame: #ff7a00;
+  --cream: #ffe0c0;
+  --cyan: #00a0b0;
+  --steel: #505050;
+  --danger: #e01000;
+  --blue: #00a0b0;
+  --warm: #ff7a00;
   --radius: .65rem;
 }
 
@@ -28,8 +33,9 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(180deg, rgba(215, 255, 100, .08), transparent 26rem),
-    radial-gradient(circle at 80% 0%, rgba(106, 167, 255, .12), transparent 22rem),
+    radial-gradient(circle at 8% 8%, rgba(224, 16, 0, .22), transparent 22rem),
+    radial-gradient(circle at 88% 4%, rgba(0, 160, 176, .18), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 80, 0, .12), transparent 30rem),
     var(--surface);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -91,7 +97,7 @@ h2 {
 
 .eyebrow {
   margin-bottom: .8rem;
-  color: var(--accent);
+  color: var(--cyan);
   font-size: .74rem;
   font-weight: 900;
   letter-spacing: .14em;
@@ -123,18 +129,19 @@ h2 {
   position: relative;
   min-height: 38rem;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 80, 0, .48);
   border-radius: var(--radius);
-  background: #090a09;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, .34);
+  background: #030303;
+  box-shadow: 0 2rem 5rem rgba(224, 16, 0, .2);
 }
 
 .hero-stage img {
   width: 100%;
   height: 100%;
   min-height: 38rem;
-  object-fit: cover;
-  opacity: .86;
+  object-fit: contain;
+  padding: clamp(.75rem, 2vw, 1.4rem);
+  opacity: .98;
 }
 
 .stage-panel,
@@ -142,7 +149,7 @@ h2 {
   position: absolute;
   border: 1px solid rgba(245, 241, 232, .16);
   border-radius: var(--radius);
-  background: rgba(17, 19, 17, .78);
+  background: rgba(3, 3, 3, .78);
   backdrop-filter: blur(18px);
 }
 
@@ -181,7 +188,7 @@ h2 {
   height: 2.1rem;
   place-items: center;
   border-radius: .45rem;
-  background: var(--accent);
+  background: var(--ember);
   color: var(--accent-ink);
   font-weight: 950;
 }
@@ -208,8 +215,9 @@ button {
 .button.primary,
 button.primary {
   border-color: var(--accent);
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--ember), var(--accent) 55%, var(--flame));
   color: var(--accent-ink);
+  box-shadow: 0 .9rem 2rem rgba(224, 16, 0, .22);
 }
 
 .button.ghost,
@@ -238,6 +246,8 @@ button.danger {
   .history-list article,
   .scoreboard article,
   .auth-panel article,
+  .profile-card,
+  .profile-form,
   .form-panel,
   .current-trick,
   .result,
@@ -245,7 +255,7 @@ button.danger {
 .choose-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(25, 29, 26, .78);
+  background: linear-gradient(180deg, rgba(32, 32, 32, .86), rgba(12, 12, 12, .92));
 }
 
 .stats article {
@@ -278,7 +288,7 @@ button.danger {
 }
 
 .feature-strip span {
-  color: var(--accent);
+  color: var(--cyan);
   font-weight: 950;
 }
 
@@ -322,7 +332,7 @@ select {
   border: 1px solid var(--line);
   border-radius: .5rem;
   padding: 0 1rem;
-  background: #0d0f0d;
+  background: #080808;
   color: var(--ink);
 }
 
@@ -339,7 +349,7 @@ select {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
   transition: border-color .18s ease, transform .18s ease;
 }
 
@@ -365,7 +375,7 @@ select {
 }
 
 .trick-body span {
-  color: var(--accent);
+  color: var(--cyan);
   font-size: .75rem;
   font-weight: 950;
   text-transform: uppercase;
@@ -446,7 +456,7 @@ select {
   padding: .5rem .65rem;
   border: 1px solid var(--line);
   border-radius: .45rem;
-  background: var(--soft);
+  background: color-mix(in srgb, var(--soft) 72%, var(--surface));
   font-weight: 800;
 }
 
@@ -483,7 +493,7 @@ select {
 }
 
 .auth-panel span {
-  color: var(--accent);
+  color: var(--cyan);
   font-size: .75rem;
   font-weight: 950;
   text-transform: uppercase;
@@ -504,8 +514,106 @@ select {
   line-height: 1.5;
 }
 
+.profile-head {
+  align-items: center;
+}
+
+.profile-head img {
+  width: min(18rem, 38vw);
+  border: 1px solid rgba(255, 80, 0, .48);
+  border-radius: var(--radius);
+  background: #030303;
+  box-shadow: 0 1.4rem 3rem rgba(224, 16, 0, .22);
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, .45fr) minmax(0, 1fr);
+  gap: .85rem;
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto 4rem;
+}
+
+.profile-card,
+.profile-form {
+  padding: 1rem;
+}
+
+.profile-card {
+  display: grid;
+  align-content: start;
+  gap: .75rem;
+}
+
+.profile-card > span {
+  color: var(--cyan);
+  font-size: .75rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.profile-card > strong {
+  color: var(--ink-strong);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1;
+}
+
+.profile-card small {
+  overflow: hidden;
+  color: var(--muted);
+  font-weight: 800;
+  text-overflow: ellipsis;
+}
+
+.profile-card dl {
+  display: grid;
+  gap: .55rem;
+  margin: .5rem 0 0;
+}
+
+.profile-card dl div {
+  border: 1px solid rgba(0, 160, 176, .22);
+  border-radius: .5rem;
+  padding: .75rem;
+  background: rgba(0, 160, 176, .06);
+}
+
+.profile-card dt {
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.profile-card dd {
+  margin: .25rem 0 0;
+  color: var(--ink-strong);
+  font-weight: 950;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.profile-form label:first-child {
+  grid-column: 1 / -1;
+}
+
+.profile-form button,
+.profile-form .save-ok,
+.profile-form .auth-error {
+  grid-column: 1 / -1;
+}
+
+.save-ok {
+  color: var(--cyan);
+  font-weight: 900;
+}
+
 .guide-list span {
-  color: var(--accent);
+  color: var(--cyan);
   font-size: .75rem;
   font-weight: 950;
   text-transform: uppercase;
@@ -592,7 +700,7 @@ fieldset input {
 
 .scoreboard article.active {
   border-color: var(--accent);
-  box-shadow: inset 0 0 0 1px rgba(215, 255, 100, .35);
+  box-shadow: inset 0 0 0 1px rgba(255, 80, 0, .35);
 }
 
 .scoreboard strong {
@@ -639,7 +747,7 @@ fieldset input {
 }
 
 .draw-panel span {
-  color: var(--accent);
+  color: var(--cyan);
   font-weight: 950;
 }
 
@@ -730,7 +838,9 @@ fieldset input {
   .feature-strip,
   .guide-list,
   .history-list,
-  .form-panel {
+  .form-panel,
+  .profile-layout,
+  .profile-form {
     grid-template-columns: 1fr;
   }
 
@@ -744,6 +854,10 @@ fieldset input {
   .result {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .profile-head img {
+    width: min(100%, 16rem);
   }
 }
 
@@ -762,6 +876,7 @@ fieldset input {
     .game,
     .history-list,
     .auth-panel,
+    .profile-layout,
     .stats,
     .feature-strip {
     width: min(100% - 1rem, 1240px);

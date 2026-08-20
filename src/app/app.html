@@ -1,9 +1,11 @@
 <header class="app-header">
   <a class="brand" routerLink="/" aria-label="Go Grind inicio">
-    <span class="brand-mark">GG</span>
+    <span class="brand-mark">
+      <img src="/assets/imgs/go-grind-logo.png" alt="" />
+    </span>
     <span>
       <strong>Go Grind</strong>
-      <small>grind smarter</small>
+      <small>fire your line</small>
     </span>
   </a>
 
@@ -16,8 +18,11 @@
 
   <div class="auth-actions">
     @if (auth.signedIn()) {
-      <span>{{ auth.user()?.email }}</span>
-      <button type="button" (click)="signOut()">Sair</button>
+      <a class="user-chip" routerLink="/perfil">
+        <strong>{{ auth.displayName() }}</strong>
+        <span>{{ auth.profile().skateModel || 'Perfil' }}</span>
+      </a>
+      <button type="button" class="ghost" (click)="signOut()">Sair</button>
     } @else {
       <button type="button" class="primary" [disabled]="auth.loading()" (click)="signIn()">
         {{ auth.loading() ? 'Abrindo...' : 'Entrar' }}
