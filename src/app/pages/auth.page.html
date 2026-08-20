@@ -1,0 +1,28 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Conta Go Grind</p>
+    <h1>Entrar</h1>
+    <p class="lead">Use sua conta Google para salvar sessao, historico e progresso quando o sync estiver ativo.</p>
+  </div>
+</section>
+
+<section class="auth-panel">
+  @if (auth.signedIn()) {
+    <article>
+      <span>Logado como</span>
+      <strong>{{ auth.user()?.email }}</strong>
+      <a class="button primary" routerLink="/">Voltar ao inicio</a>
+    </article>
+  } @else {
+    <article>
+      <span>Google</span>
+      <strong>Login rapido</strong>
+      <button class="primary" type="button" [disabled]="auth.loading()" (click)="signIn()">
+        {{ auth.loading() ? 'Abrindo...' : 'Entrar com Google' }}
+      </button>
+      @if (auth.error()) {
+        <p class="auth-error">{{ auth.error() }}</p>
+      }
+    </article>
+  }
+</section>

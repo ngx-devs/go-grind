@@ -237,6 +237,7 @@ button.danger {
 .guide-list article,
   .history-list article,
   .scoreboard article,
+  .auth-panel article,
   .form-panel,
   .current-trick,
   .result,
@@ -466,10 +467,42 @@ select {
 
 .guide-list article,
 .history-list article,
+.auth-panel article,
 .form-panel {
   padding: 1rem;
 }
 
+.auth-panel {
+  width: min(34rem, calc(100% - 2rem));
+  margin: 0 auto 4rem;
+}
+
+.auth-panel article {
+  display: grid;
+  gap: .85rem;
+}
+
+.auth-panel span {
+  color: var(--accent);
+  font-size: .75rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.auth-panel strong {
+  color: var(--ink-strong);
+  font-size: 1.45rem;
+}
+
+.auth-panel .button,
+.auth-panel button {
+  width: 100%;
+}
+
+.auth-error {
+  color: var(--danger);
+  line-height: 1.5;
+}
 
 .guide-list span {
   color: var(--accent);
@@ -728,6 +761,7 @@ fieldset input {
     .form-panel,
     .game,
     .history-list,
+    .auth-panel,
     .stats,
     .feature-strip {
     width: min(100% - 1rem, 1240px);
@@ -742,4 +776,3 @@ fieldset input {
     grid-template-columns: 1fr;
   }
 }
-

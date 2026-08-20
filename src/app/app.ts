@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,13 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './app.scss',
 })
 export class App {
+  readonly auth = inject(AuthService);
+
+  signIn(): void {
+    void this.auth.signInWithGoogle(window.location.pathname);
+  }
+
+  signOut(): void {
+    void this.auth.signOut();
+  }
 }

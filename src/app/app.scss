@@ -68,6 +68,28 @@ nav a:hover {
   color: var(--ink-strong);
 }
 
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  min-width: max-content;
+}
+
+.auth-actions span {
+  max-width: 14rem;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: .82rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-actions button {
+  min-height: 2.45rem;
+  padding: .55rem .8rem;
+}
+
 main {
   min-height: calc(100dvh - 5.2rem);
 }
@@ -80,5 +102,10 @@ main {
 
   nav {
     width: 100%;
+  }
+
+  .auth-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 }

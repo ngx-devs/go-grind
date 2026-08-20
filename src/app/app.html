@@ -13,6 +13,17 @@
     <a routerLink="/blade/setup" routerLinkActive="active">B.L.A.D.E.</a>
     <a routerLink="/historico" routerLinkActive="active">Historico</a>
   </nav>
+
+  <div class="auth-actions">
+    @if (auth.signedIn()) {
+      <span>{{ auth.user()?.email }}</span>
+      <button type="button" (click)="signOut()">Sair</button>
+    } @else {
+      <button type="button" class="primary" [disabled]="auth.loading()" (click)="signIn()">
+        {{ auth.loading() ? 'Abrindo...' : 'Entrar' }}
+      </button>
+    }
+  </div>
 </header>
 
 <main>

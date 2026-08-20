@@ -44,6 +44,27 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ng test
 ```
 
+## Supabase Google login
+
+The Angular app uses Supabase Auth with `signInWithOAuth({ provider: 'google' })`.
+
+In Google Cloud OAuth client:
+
+- Authorized JavaScript origin, local: `http://localhost:4200`
+- Authorized redirect URI, hosted Supabase: `https://afuuughgjixiynkphgwm.supabase.co/auth/v1/callback`
+
+In Supabase Dashboard > Auth > URL Configuration:
+
+- Site URL, local: `http://localhost:4200`
+- Redirect URL, local: `http://localhost:4200/auth`
+- Redirect URL, production: `https://<production-domain>/auth`
+
+In Supabase Dashboard > Auth > Providers > Google:
+
+- Enable Google
+- Add Google Client ID
+- Add Google Client Secret
+
 ## Running end-to-end tests
 
 For end-to-end (e2e) testing, run:
@@ -57,4 +78,3 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
