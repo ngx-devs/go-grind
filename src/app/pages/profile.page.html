@@ -1,0 +1,88 @@
+<section class="page-head profile-head">
+  <div>
+    <p class="eyebrow">Perfil Go Grind</p>
+    <h1>Setup do skater.</h1>
+    <p class="lead">Guarde seu modelo de patins, tempo de pista e base para deixar treino, historico e partidas com a sua cara.</p>
+  </div>
+  <img src="/assets/imgs/go-grind-logo.png" alt="Logo Go Grind com patins e chamas" />
+</section>
+
+@if (auth.signedIn()) {
+  <section class="profile-layout">
+    <aside class="profile-card">
+      <span>Logado como</span>
+      <strong>{{ auth.displayName() }}</strong>
+      <small>{{ auth.user()?.email }}</small>
+
+      <dl>
+        <div>
+          <dt>Patins</dt>
+          <dd>{{ auth.profile().skateModel || 'Nao definido' }}</dd>
+        </div>
+        <div>
+          <dt>Desde</dt>
+          <dd>{{ auth.profile().skatingSince || 'Nao definido' }}</dd>
+        </div>
+        <div>
+          <dt>Base</dt>
+          <dd>{{ auth.profile().stance || 'Nao definida' }}</dd>
+        </div>
+      </dl>
+    </aside>
+
+    <form class="profile-form" (ngSubmit)="save()">
+      <label>
+        Modelo do patins
+        <input
+          name="skateModel"
+          type="text"
+          autocomplete="off"
+          placeholder="Razors Shift, USD Aeon, Them 909..."
+          [ngModel]="profile().skateModel"
+          (ngModelChange)="update('skateModel', $event)"
+        />
+      </label>
+
+      <label>
+        Anda desde
+        <input
+          name="skatingSince"
+          type="month"
+          [ngModel]="profile().skatingSince"
+          (ngModelChange)="update('skatingSince', $event)"
+        />
+      </label>
+
+      <label>
+        Base / preferencia
+        <select name="stance" [ngModel]="profile().stance" (ngModelChange)="update('stance', $event)">
+          <option value="">Selecionar</option>
+          <option value="Regular">Regular</option>
+          <option value="Switch">Switch</option>
+          <option value="Ambas">Ambas</option>
+          <option value="Descobrindo">Descobrindo</option>
+        </select>
+      </label>
+
+      <button class="primary" type="submit" [disabled]="auth.loading()">
+        {{ auth.loading() ? 'Salvando...' : 'Salvar perfil' }}
+      </button>
+
+      @if (saved()) {
+        <p class="save-ok">Perfil salvo.</p>
+      }
+
+      @if (auth.error()) {
+        <p class="auth-error">{{ auth.error() }}</p>
+      }
+    </form>
+  </section>
+} @else {
+  <section class="auth-panel">
+    <article>
+      <span>Conta necessaria</span>
+      <strong>Entre para editar seu setup.</strong>
+      <a class="button primary" routerLink="/auth" [queryParams]="{ next: '/perfil' }">Entrar com Google</a>
+    </article>
+  </section>
+}

@@ -6,6 +6,7 @@ export const routes: Routes = [
   { path: 'guia', loadComponent: () => import('./pages/guide.page').then((m) => m.GuidePage) },
   { path: 'historico', loadComponent: () => import('./pages/history.page').then((m) => m.HistoryPage) },
   { path: 'auth', loadComponent: () => import('./pages/auth.page').then((m) => m.AuthPage) },
+  { path: 'perfil', loadComponent: () => import('./pages/profile.page').then((m) => m.ProfilePage) },
   { path: 'manobra/:id', loadComponent: () => import('./pages/trick-detail.page').then((m) => m.TrickDetailPage) },
   { path: 'blade/setup', loadComponent: () => import('./pages/blade-setup.page').then((m) => m.BladeSetupPage) },
   { path: 'blade/play', loadComponent: () => import('./pages/blade-game.page').then((m) => m.BladeGamePage) },
