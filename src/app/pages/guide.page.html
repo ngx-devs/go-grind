@@ -2,7 +2,10 @@
   <div>
     <p class="eyebrow">Guia</p>
     <h1>Como ler e evoluir nos grinds</h1>
-    <p class="lead">Um resumo visual para entender encaixe, lado do patins, progressao e estilo antes de jogar uma partida ou estudar o catalogo.</p>
+    <p class="lead">
+      Um resumo visual para entender encaixe, lado do patins, progressao e estilo antes de jogar uma
+      partida ou estudar o catalogo.
+    </p>
   </div>
 </section>
 
@@ -92,6 +95,42 @@
   </div>
 </section>
 
+<section class="learn-section definitions-section">
+  <div class="section-title">
+    <p class="eyebrow">Glossario</p>
+    <h2>Definicoes do aggressive inline</h2>
+  </div>
+  <div class="definition-groups">
+    @for (group of definitionGroups; track group.title) {
+      <article class="definition-group">
+        <div class="definition-group-head">
+          <p class="eyebrow">{{ group.eyebrow }}</p>
+          <h3>{{ group.title }}</h3>
+          @if (group.image) {
+            <div class="definition-media">
+              <img [src]="group.image" [alt]="group.title" loading="lazy" />
+              @if (group.secondaryImage) {
+                <img [src]="group.secondaryImage" [alt]="group.title + ' components'" loading="lazy" />
+              }
+            </div>
+          }
+          @if (group.description) {
+            <p>{{ group.description }}</p>
+          }
+        </div>
+        <dl>
+          @for (item of group.items; track item.term) {
+            <div>
+              <dt>{{ item.term }}</dt>
+              <dd>{{ item.description }}</dd>
+            </div>
+          }
+        </dl>
+      </article>
+    }
+  </div>
+</section>
+
 <section class="learn-section">
   <div class="section-title">
     <p class="eyebrow">Para assistir</p>
@@ -111,7 +150,10 @@
 <section class="source-note">
   <p>
     Conteudo adaptado e imagens educacionais de
-    <a href="https://bookofgrinds.com/learn.html" target="_blank" rel="noreferrer">Book of Grinds</a>,
-    licenciado em CC BY-NC-SA 4.0.
+    <a href="https://bookofgrinds.com/learn.html" target="_blank" rel="noreferrer">Book of Grinds</a
+    >, com definicoes tambem baseadas em
+    <a href="https://bookofgrinds.com/definitions.html" target="_blank" rel="noreferrer"
+      >Book of Grinds Definitions</a
+    >, licenciado em CC BY-NC-SA 4.0.
   </p>
 </section>
