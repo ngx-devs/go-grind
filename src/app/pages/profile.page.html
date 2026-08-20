@@ -67,6 +67,7 @@
       <button class="primary" type="submit" [disabled]="auth.loading()">
         {{ auth.loading() ? 'Salvando...' : 'Salvar perfil' }}
       </button>
+      <button class="ghost" type="button" (click)="openSetupModal()">Ver resumo</button>
 
       @if (saved()) {
         <p class="save-ok">Perfil salvo.</p>
@@ -76,6 +77,14 @@
         <p class="auth-error">{{ auth.error() }}</p>
       }
     </form>
+
+    <dialog #setupDialog class="setup-dialog" [class.closing]="closingModal()">
+      <span>Resumo do setup</span>
+      <strong>{{ profile().skateModel || 'Patins ainda sem modelo' }}</strong>
+      <p>Tempo andando: {{ profile().skatingSince || 'nao definido' }}</p>
+      <p>Base: {{ profile().stance || 'nao definida' }}</p>
+      <button type="button" class="primary" (click)="closeSetupModal()">Fechar</button>
+    </dialog>
   </section>
 } @else {
   <section class="auth-panel">

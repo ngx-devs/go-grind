@@ -27,6 +27,7 @@
 html {
   background: var(--surface);
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -45,6 +46,30 @@ a {
   text-decoration: none;
 }
 
+a,
+button,
+input,
+select,
+.trick-card,
+.button,
+.user-chip,
+.profile-card,
+.profile-form,
+.auth-panel article,
+.form-panel,
+.draw-panel,
+.choose-panel,
+.current-trick,
+.result {
+  transition:
+    background-color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    color .18s ease,
+    opacity .18s ease,
+    transform .18s ease;
+}
+
 button,
 input,
 select {
@@ -53,6 +78,19 @@ select {
 
 button {
   cursor: pointer;
+}
+
+button:active,
+.button:active,
+a:active {
+  transform: translateY(1px) scale(.985);
+}
+
+button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .56;
+  transform: none;
 }
 
 img {
@@ -212,6 +250,13 @@ button {
   font-weight: 850;
 }
 
+.button:hover,
+button:hover {
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--line));
+  box-shadow: 0 .7rem 1.4rem rgba(255, 80, 0, .14);
+  transform: translateY(-1px);
+}
+
 .button.primary,
 button.primary {
   border-color: var(--accent);
@@ -336,6 +381,13 @@ select {
   color: var(--ink);
 }
 
+input:focus,
+select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 .2rem rgba(0, 160, 176, .16);
+  outline: 0;
+}
+
 .trick-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -356,6 +408,57 @@ select {
 .trick-card:hover {
   border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
   transform: translateY(-2px);
+}
+
+dialog,
+[popover] {
+  max-width: min(34rem, calc(100% - 2rem));
+  border: 1px solid rgba(255, 80, 0, .42);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(32, 32, 32, .98), rgba(3, 3, 3, .98));
+  color: var(--ink);
+  box-shadow: 0 1.8rem 4rem rgba(0, 0, 0, .55);
+}
+
+dialog::backdrop,
+[popover]::backdrop {
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(8px);
+}
+
+dialog[open],
+[popover]:popover-open {
+  animation: modal-in .18s ease both;
+}
+
+dialog.closing,
+[popover].closing {
+  animation: modal-out .16s ease both;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(.75rem) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(.6rem) scale(.98);
+  }
 }
 
 .trick-thumb {
@@ -601,7 +704,7 @@ select {
   grid-column: 1 / -1;
 }
 
-.profile-form button,
+.profile-form button.primary,
 .profile-form .save-ok,
 .profile-form .auth-error {
   grid-column: 1 / -1;
@@ -610,6 +713,33 @@ select {
 .save-ok {
   color: var(--cyan);
   font-weight: 900;
+}
+
+.setup-dialog {
+  display: none;
+  gap: .7rem;
+}
+
+.setup-dialog[open] {
+  display: grid;
+}
+
+.setup-dialog span {
+  color: var(--cyan);
+  font-size: .75rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.setup-dialog strong {
+  color: var(--ink-strong);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1;
+}
+
+.setup-dialog p {
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .guide-list span {
