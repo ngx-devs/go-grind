@@ -1,7 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { SupabaseClientService } from '../core/supabase.client';
 import { TrickStore } from '../core/trick-store';
 
 @Component({
@@ -11,6 +10,5 @@ import { TrickStore } from '../core/trick-store';
 })
 export class HomePage {
   readonly store = inject(TrickStore);
-  readonly supabase = inject(SupabaseClientService);
   readonly families = computed(() => new Set(this.store.tricks().map((trick) => trick.family)).size);
 }
