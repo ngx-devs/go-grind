@@ -1,7 +1,13 @@
 <section class="page-head">
   <div>
     <p class="eyebrow">Historico</p>
-    <h1>Partidas salvas neste aparelho</h1>
+    @if (auth.signedIn()) {
+      <h1>Historico da conta logada</h1>
+      <p class="lead">Partidas vinculadas a {{ auth.displayName() }}.</p>
+    } @else {
+      <h1>Historico do visitante</h1>
+      <p class="lead">Entre com Google para manter o historico separado na sua conta.</p>
+    }
   </div>
   <button class="button" type="button" (click)="history.clear()">Limpar</button>
 </section>
@@ -14,6 +20,6 @@
       <p>{{ record.level }} / {{ record.attempts.length }} respostas registradas</p>
     </article>
   } @empty {
-    <p class="empty">Nenhuma partida ainda.</p>
+    <p class="empty">Nenhuma partida registrada ainda.</p>
   }
 </section>
