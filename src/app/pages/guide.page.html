@@ -1,7 +1,8 @@
 <section class="page-head">
   <div>
     <p class="eyebrow">Guia</p>
-    <h1>Como ler uma manobra</h1>
+    <h1>Como ler e evoluir nos grinds</h1>
+    <p class="lead">Um resumo visual para entender encaixe, lado do patins, progressao e estilo antes de jogar uma partida ou estudar o catalogo.</p>
   </div>
 </section>
 
@@ -14,4 +15,103 @@
       <strong>{{ entry.tip }}</strong>
     </article>
   }
+</section>
+
+<section class="learn-section">
+  <div class="section-title">
+    <p class="eyebrow">Base do lock</p>
+    <h2>Posicao do patins</h2>
+  </div>
+  <div class="learn-grid">
+    @for (item of positions; track item.title) {
+      <article class="learn-card">
+        <img [src]="item.image" [alt]="item.title" loading="lazy" />
+        <div>
+          <span>{{ item.title }}</span>
+          <p>{{ item.text }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="learn-section">
+  <div class="section-title">
+    <p class="eyebrow">Lado do patins</p>
+    <h2>Positive, negative e groove</h2>
+  </div>
+  <div class="learn-grid compact">
+    @for (item of edges; track item.title) {
+      <article class="learn-card">
+        <img [src]="item.image" [alt]="item.title" loading="lazy" />
+        <div>
+          <span>{{ item.title }}</span>
+          <p>{{ item.text }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="learn-section split">
+  <article>
+    <p class="eyebrow">Ordem sugerida</p>
+    <h2>Progressao de treino</h2>
+    <ol>
+      @for (item of progression; track item) {
+        <li>{{ item }}</li>
+      }
+    </ol>
+  </article>
+  <article>
+    <p class="eyebrow">Estilo</p>
+    <h2>Flow vem com repeticao</h2>
+    <ul>
+      @for (item of styleTips; track item) {
+        <li>{{ item }}</li>
+      }
+    </ul>
+  </article>
+</section>
+
+<section class="learn-section">
+  <div class="section-title">
+    <p class="eyebrow">Leitura tecnica</p>
+    <h2>Acid e canais</h2>
+  </div>
+  <div class="learn-grid two">
+    @for (item of concepts; track item.title) {
+      <article class="learn-card">
+        <img [src]="item.image" [alt]="item.title" loading="lazy" />
+        <div>
+          <span>{{ item.title }}</span>
+          <p>{{ item.text }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="learn-section">
+  <div class="section-title">
+    <p class="eyebrow">Para assistir</p>
+    <h2>Canais recomendados</h2>
+  </div>
+  <div class="channel-grid">
+    @for (channel of channels; track channel.name) {
+      <a class="channel-card" [href]="channel.url" target="_blank" rel="noreferrer">
+        <img [src]="channel.image" [alt]="channel.name" loading="lazy" />
+        <span>{{ channel.lang }}</span>
+        <strong>{{ channel.name }}</strong>
+      </a>
+    }
+  </div>
+</section>
+
+<section class="source-note">
+  <p>
+    Conteudo adaptado e imagens educacionais de
+    <a href="https://bookofgrinds.com/learn.html" target="_blank" rel="noreferrer">Book of Grinds</a>,
+    licenciado em CC BY-NC-SA 4.0.
+  </p>
 </section>
