@@ -105,10 +105,10 @@ p {
 }
 
 h1 {
-  max-width: 11ch;
+  max-width: 15ch;
   color: var(--ink-strong);
-  font-size: clamp(3.2rem, 8vw, 7.2rem);
-  line-height: .86;
+  font-size: clamp(2.35rem, 4.3vw, 4rem);
+  line-height: .98;
   letter-spacing: 0;
 }
 
@@ -129,7 +129,7 @@ h2 {
 .history-list,
 .stats,
 .feature-strip {
-  width: min(1240px, calc(100% - 2rem));
+  width: min(1180px, calc(100% - 2rem));
   margin-inline: auto;
 }
 
@@ -144,47 +144,52 @@ h2 {
 
 .lead {
   max-width: 42rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   color: var(--muted);
-  font-size: 1.15rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(28rem, .82fr);
-  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, .95fr) minmax(24rem, .76fr);
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
-  min-height: calc(100dvh - 5.2rem);
-  padding-block: 3rem;
+  min-height: 0;
+  padding-block: clamp(2.5rem, 4vw, 3.25rem);
 }
 
 .hero-copy {
-  padding-top: 2rem;
+  max-width: 42rem;
+  padding-top: 0;
 }
 
 .hero-stage {
   position: relative;
-  min-height: 38rem;
+  display: grid;
+  justify-self: end;
+  width: min(100%, 29rem);
+  min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 80, 0, .48);
   border-radius: var(--radius);
+  padding: .85rem;
   background: #030303;
   box-shadow: 0 2rem 5rem rgba(224, 16, 0, .2);
 }
 
 .hero-stage img {
   width: 100%;
-  height: 100%;
-  min-height: 38rem;
+  height: auto;
+  max-height: 23rem;
+  min-height: 0;
   object-fit: contain;
-  padding: clamp(.75rem, 2vw, 1.4rem);
+  padding: 0;
   opacity: .98;
 }
 
 .stage-panel,
 .stage-score {
-  position: absolute;
   border: 1px solid rgba(245, 241, 232, .16);
   border-radius: var(--radius);
   background: rgba(3, 3, 3, .78);
@@ -192,10 +197,9 @@ h2 {
 }
 
 .stage-panel {
-  left: 1.2rem;
-  right: 1.2rem;
-  bottom: 1.2rem;
-  padding: 1rem;
+  position: static;
+  margin-top: .75rem;
+  padding: .85rem;
 }
 
 .stage-panel span,
@@ -208,11 +212,12 @@ h2 {
   display: block;
   margin-block: .2rem;
   color: var(--ink-strong);
-  font-size: 2rem;
+  font-size: 1.45rem;
   line-height: 1;
 }
 
 .stage-score {
+  position: absolute;
   top: 1.2rem;
   right: 1.2rem;
   display: flex;
@@ -222,8 +227,8 @@ h2 {
 
 .stage-score span {
   display: grid;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 1.85rem;
+  height: 1.85rem;
   place-items: center;
   border-radius: .45rem;
   background: var(--ember);
@@ -236,15 +241,15 @@ h2 {
   flex-wrap: wrap;
   gap: .75rem;
   align-items: center;
-  margin-top: 1.7rem;
+  margin-top: 1.4rem;
 }
 
 .button,
 button {
-  min-height: 2.9rem;
+  min-height: 2.55rem;
   border: 1px solid var(--line);
   border-radius: .5rem;
-  padding: .75rem 1.05rem;
+  padding: .62rem .9rem;
   background: var(--panel-2);
   color: var(--ink);
   font-weight: 850;
@@ -281,8 +286,8 @@ button.danger {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: .75rem;
-  margin-top: -2rem;
-  padding-bottom: 1.5rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
 }
 
 .stats article,
@@ -304,13 +309,13 @@ button.danger {
 }
 
 .stats article {
-  padding: 1rem;
+  padding: .9rem 1rem;
 }
 
 .stats strong {
   display: block;
   color: var(--ink-strong);
-  font-size: 2.35rem;
+  font-size: 1.85rem;
   line-height: 1;
 }
 
@@ -325,11 +330,11 @@ button.danger {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: .75rem;
-  padding-block: 1rem 4rem;
+  padding-block: .75rem 3rem;
 }
 
 .feature-strip article {
-  padding: 1.1rem;
+  padding: 1rem;
 }
 
 .feature-strip span {
@@ -338,7 +343,8 @@ button.danger {
 }
 
 .feature-strip h2 {
-  margin-top: 1.4rem;
+  margin-top: 1rem;
+  font-size: 1.35rem;
 }
 
 .feature-strip p {
@@ -351,12 +357,12 @@ button.danger {
   justify-content: space-between;
   gap: 1.5rem;
   align-items: end;
-  padding-block: 3rem 1.2rem;
+  padding-block: 2.2rem 1.1rem;
 }
 
 .page-head h1 {
-  max-width: 12ch;
-  font-size: clamp(2.7rem, 6vw, 5.4rem);
+  max-width: 14ch;
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
 }
 
 .toolbar {
@@ -390,14 +396,14 @@ select:focus {
 
 .trick-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
   gap: .85rem;
   padding-bottom: 4rem;
 }
 
 .trick-card {
   display: grid;
-  min-height: 25rem;
+  min-height: 19.5rem;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -462,12 +468,29 @@ dialog.closing,
 }
 
 .trick-thumb {
-  min-height: 18rem;
+  position: relative;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #090a09;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 80, 0, .2), transparent 45%),
+    linear-gradient(135deg, #111, #050505);
+}
+
+.trick-thumb::after,
+.detail-media::after {
+  position: absolute;
+  inset: auto 1rem 1rem;
+  color: rgba(255, 224, 192, .46);
+  content: "midia pendente";
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .trick-thumb img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -495,7 +518,7 @@ dialog.closing,
 
 .detail {
   display: grid;
-  grid-template-columns: minmax(28rem, .9fr) minmax(22rem, 1fr);
+  grid-template-columns: minmax(22rem, .82fr) minmax(22rem, 1fr);
   gap: 2rem;
   align-items: start;
   padding-block: 2.5rem 4rem;
@@ -504,15 +527,20 @@ dialog.closing,
 .detail-media {
   position: sticky;
   top: 6rem;
-  min-height: 38rem;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #090a09;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 80, 0, .2), transparent 45%),
+    linear-gradient(135deg, #111, #050505);
 }
 
 .detail-media img,
 .current-trick img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;

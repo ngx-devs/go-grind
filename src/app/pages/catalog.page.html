@@ -20,7 +20,7 @@
   @for (trick of tricks(); track trick.id) {
     <a class="trick-card" [routerLink]="['/manobra', trick.id]">
       <div class="trick-thumb">
-        <img [src]="trick.image" [alt]="trick.name" loading="lazy" />
+        <img [src]="trick.image" [alt]="trick.name" loading="lazy" (error)="$any($event.target).style.display = 'none'" />
       </div>
       <div class="trick-body">
         <span>{{ trick.level }}</span>

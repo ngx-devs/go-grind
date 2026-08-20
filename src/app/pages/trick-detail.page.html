@@ -1,7 +1,7 @@
 @if (trick(); as trick) {
   <section class="detail">
     <div class="detail-media">
-      <img [src]="trick.image" [alt]="trick.name" />
+      <img [src]="trick.image" [alt]="trick.name" (error)="$any($event.target).style.display = 'none'" />
     </div>
     <article class="detail-copy">
       <a routerLink="/catalogo" class="back">Voltar ao catalogo</a>
